@@ -3,7 +3,7 @@ services:
   mariadb:
     build: .
     restart: always
-    container_name: mysql
+    container_name: mariadb
     ports:
       - "3306:3306"
     environment: 
@@ -11,8 +11,6 @@ services:
       - MYSQL_USER=foobar
       - MYSQL_USER_PWD=foobar
       - MYSQL_USER_DB=foobar
-    volumes:
-      - $PWD/mysql_data:/var/lib/mysql
 networks:
   default:
     external:
