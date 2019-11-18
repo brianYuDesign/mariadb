@@ -1,0 +1,19 @@
+version: "3"
+services:
+  mariadb:
+    build: .
+    restart: always
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment: 
+      - MYSQL_ROOT_PWD=password
+      - MYSQL_USER=foobar
+      - MYSQL_USER_PWD=foobar
+      - MYSQL_USER_DB=foobar
+    volumes:
+      - $PWD/mysql_data:/var/lib/mysql
+networks:
+  default:
+    external:
+      name: proxy
